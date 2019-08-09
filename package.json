@@ -1,6 +1,6 @@
 {
   "name": "@ctsy/auth-api",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -8,6 +8,17 @@
     "dist/**/*.d.ts",
     "README.md",
     "yarn.lock"
+  ],
+  "keywords": [
+    "ctsy",
+    "tansuyun",
+    "yanpengquan",
+    "ctsy",
+    "auth",
+    "api",
+    "auth-api",
+    "登陆",
+    "注册"
   ],
   "repository": "https://github.com/c-tsy/auth_api",
   "author": "castleiMac <castle@tansuyun.cn>",
@@ -17,7 +28,8 @@
     "prepublish": "yarn build"
   },
   "dependencies": {
-    "@ctsy/request": "^1.0.9"
+    "@ctsy/hook": "^0.0.5",
+    "@ctsy/request": "^1.0.10"
   },
   "devDependencies": {
     "ts-loader": "^6.0.4",
