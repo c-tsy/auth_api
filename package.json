@@ -1,0 +1,28 @@
+{
+  "name": "@ctsy/auth-api",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "README.md",
+    "yarn.lock"
+  ],
+  "repository": "https://github.com/c-tsy/auth_api",
+  "author": "castleiMac <castle@tansuyun.cn>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --mode production --config build/config.js  src/index.ts && tsc",
+    "prepublish": "yarn build"
+  },
+  "dependencies": {
+    "@ctsy/request": "^1.0.9"
+  },
+  "devDependencies": {
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.3",
+    "webpack": "^4.39.1",
+    "webpack-cli": "^3.3.6"
+  }
+}
