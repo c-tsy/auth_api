@@ -76,6 +76,30 @@ export class Auth extends Base {
     reset(OldPWD: string, PWD: string) {
         return this._post('reset', { [AuthModule.Fields.PWD]: PWD, OldPWD: OldPWD })
     }
+    /**
+     * 三方登陆
+     * @param Type 
+     * @param Account 
+     */
+    alogin(Type: string, Account: string) {
+        return this._post('alogin', { Type, Account })
+    }
+    /**
+     * 三方登陆的绑定
+     * @param Type 
+     * @param Account 
+     */
+    abind(Type: string, Account: string) {
+        return this._post('abind', { Type, Account })
+    }
+    /**
+     * 三方登陆的解绑
+     * @param Type 
+     * @param Account 
+     */
+    aunbind(Type: string, Account: string) {
+        return this._post('aunbind', { Type, Account })
+    }
 }
 export class Group extends Base { }
 export class Certification extends Base { }
