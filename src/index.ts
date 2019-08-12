@@ -1,4 +1,4 @@
-import { BaseController } from '@ctsy/request';
+import { BaseController, Controller } from '@ctsy/request';
 
 
 class Base extends BaseController {
@@ -14,7 +14,7 @@ export class Auth extends Base {
      * @param PWD 
      */
     login(Account: string, PWD: string) {
-        return this._post('login', { [AuthModules.Fields.Account]: Account, [AuthModules.Fields.PWD]: PWD })
+        return this._post('login', { [AuthModule.Fields.Account]: Account, [AuthModule.Fields.PWD]: PWD })
     }
     /**
      * 检查登陆是否有效
@@ -49,10 +49,10 @@ export class Auth extends Base {
      */
     regist(Account: string, PWD: string, VCode: string, PUID: number = 0) {
         return this._post('regist', {
-            [AuthModules.Fields.Account]: Account,
-            [AuthModules.Fields.PWD]: PWD,
-            [AuthModules.Fields.PUID]: PUID,
-            [AuthModules.Fields.VCode]: VCode,
+            [AuthModule.Fields.Account]: Account,
+            [AuthModule.Fields.PWD]: PWD,
+            [AuthModule.Fields.PUID]: PUID,
+            [AuthModule.Fields.VCode]: VCode,
         });
     }
     /**
@@ -63,19 +63,41 @@ export class Auth extends Base {
      */
     forget(Account: string, PWD: string, VCode: string) {
         return this._post('forget', {
-            [AuthModules.Fields.Account]: Account,
-            [AuthModules.Fields.PWD]: PWD,
-            [AuthModules.Fields.VCode]: VCode,
+            [AuthModule.Fields.Account]: Account,
+            [AuthModule.Fields.PWD]: PWD,
+            [AuthModule.Fields.VCode]: VCode,
         })
+    }
+    /**
+     * 设置新密码
+     * @param OldPWD 
+     * @param PWD 
+     */
+    reset(OldPWD: string, PWD: string) {
+        return this._post('reset', { [AuthModule.Fields.PWD]: PWD, OldPWD: OldPWD })
     }
 }
 export class Group extends Base { }
 export class Certification extends Base { }
-export class User extends Base { }
-export class Rule extends Base { }
+export class User extends Base {
+    pk = "UID";
+}
+export class Users extends Controller {
+    pk = "UID";
+    prefix = '_a';
+}
+export class Rule extends Controller {
+    prefix = '_a';
+}
+export class RuleGroup extends Controller {
+    prefix = '_a';
+}
+export class UserGroup extends Controller {
+    prefix = '_a';
+}
 
 
-const AuthModules = {
+export const AuthModule = {
     Fields: {
         Account: 'Account',
         PWD: "PWD",
@@ -85,6 +107,20 @@ const AuthModules = {
     Auth: new Auth('Auth'),
     Group: new Group('Group'),
     Certification: new Certification('Certification'),
-    User: new User('User')
+    User: new User('User'),
+    Users: new Users('Users'),
+    Rule: new Rule('Rule'),
+    UserGroup: new UserGroup('UserGroup'),
+    RuleGroup: new RuleGroup('RuleGroup')
 }
-export default AuthModules;
+
+export default AuthModule;
+
+declare let window: any
+try {
+    if (window) {
+        window.AuthModule = AuthModule;
+    }
+} catch (error) {
+
+}

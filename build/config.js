@@ -31,12 +31,7 @@ module.exports = {
         alias: {}
     },
     externals: {
-        RPCClient: {
-            root: 'RPCClient',
-            commonjs: 'RPCClient',
-            commonjs2: 'RPCClient',
-            amd: 'RPCClient'
-        }
+        '@ctsy/request': 'CReq'
     },
     output: {
         path: path.resolve('dist'),

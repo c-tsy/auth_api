@@ -2,17 +2,17 @@
 # yarn lockfile v1
 
 
-"@ctsy/hook@~0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@ctsy/hook/-/hook-0.0.4.tgz#8c306cbb1d923e473672c643a869c9bd55eeb83a"
-  integrity sha512-Fs/9e9O3/MWSvlRdTpqZsvBu3F3i2mrhBMl5bdHGYcqHdY1UOimvb6yI3qiaLWUyd/nqRpex4ID0tmWlk52BLg==
+"@ctsy/hook@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@ctsy/hook/-/hook-0.0.5.tgz#68c2e58f36a0d49c5b643dc0cd6c4c573fd92f89"
+  integrity sha512-sBib0ahrQIQbttKgAuye/HmGLGOp2IV9boXBwbvMeEmKw6zhpkFPNUiq7UD+045+bcNyTIeYvJoKFwQAK7zQ/Q==
 
-"@ctsy/request@^1.0.9":
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/@ctsy/request/-/request-1.0.9.tgz#fb4d10b8ca0459ce38f78965001bf365b57f850c"
-  integrity sha512-ORzoTB3e2vINVWnDLuum2oJnKl9Oe89KFYi34pyUWxp3Ly+1ahqxdDexZrYHhufPqATtWH0GNahv0eF9Daxtlw==
+"@ctsy/request@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/@ctsy/request/-/request-1.0.10.tgz#5408d55cc8fa62b26b2bf1c4267edaf2ca2efa9f"
+  integrity sha512-u+sfmgESWiwFvWp7ggl+GNf7zGTMrzWp64lACySJDwPvYMnnvbsnTt+uM1ojtypipHXlDi7oXK9Uf/dMKkpjrA==
   dependencies:
-    "@ctsy/hook" "~0.0.4"
+    "@ctsy/hook" "^0.0.5"
     axios "~0.19.0"
     store "~2.0.12"
 
