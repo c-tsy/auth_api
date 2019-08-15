@@ -101,25 +101,71 @@ export class Auth extends Base {
         return this._post('aunbind', { Type, Account })
     }
 }
-export class Group extends Base { }
+/**
+ * 用户组
+ */
+export class Group extends Base {
+    /**
+     * 获取所有用户分组数据
+     * @param Type 
+     */
+    all(Type: string = "tree") {
+        return this._post('all', { Type });
+    }
+    /**
+     * 添加分组
+     * @param Title 分组名称
+     * @param Memo 备注
+     * @param Sort 排序
+     * @param PUGID 父分组信息
+     */
+    add(Title: string, Memo: string, Sort: number, PUGID: number = 0) {
+        return this._post('add', { Title, Memo, Sort, PUGID });
+    }
+    /**
+     * 保存
+     * @param UGID 
+     * @param Data 
+     */
+    save(UGID: number, Data: { Title?: string, Memo?: string, Sort?: number, PUGID?: number }) {
+        return this._post('save', { UGID, Data })
+    }
+    /**
+     * 分组
+     * @param UGID 
+     * @param UIDs 
+     */
+    link(UGID: number, UIDs: number[]) {
+        return this._post('link', { UGID, UIDs });
+    }
+    /**
+     * 移除分组
+     * @param UGID 
+     * @param UIDs 
+     */
+    unlink(UGID: number, UIDs: number[]) {
+        return this._post('link', { UGID, UIDs });
+    }
+}
+
 export class Certification extends Base { }
+
 export class User extends Base {
     pk = "UID";
 }
+
 export class Users extends Controller {
     pk = "UID";
     prefix = '_a';
 }
+
 export class Rule extends Controller {
     prefix = '_a';
 }
+
 export class RuleGroup extends Controller {
     prefix = '_a';
 }
-export class UserGroup extends Controller {
-    prefix = '_a';
-}
-
 
 export const AuthModule = {
     Fields: {
@@ -134,7 +180,6 @@ export const AuthModule = {
     User: new User('User'),
     Users: new Users('Users'),
     Rule: new Rule('Rule'),
-    UserGroup: new UserGroup('UserGroup'),
     RuleGroup: new RuleGroup('RuleGroup')
 }
 
