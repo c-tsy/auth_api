@@ -146,6 +146,15 @@ export class Group extends Base {
     unlink(UGID: number, UIDs: number[]) {
         return this._post('link', { UGID, UIDs });
     }
+    /**
+     * 获取组内用户列表
+     * @param UGID 
+     * @param P 
+     * @param N 
+     */
+    members(UGID: number, P: number, N: number) {
+        return this._post('members', { UGID, P, N });
+    }
 }
 
 export class Certification extends Base { }
