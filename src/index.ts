@@ -144,7 +144,7 @@ export class Group extends Base {
      * @param UIDs 
      */
     unlink(UGID: number, UIDs: number[]) {
-        return this._post('link', { UGID, UIDs });
+        return this._post('unlink', { UGID, UIDs });
     }
     /**
      * 获取组内用户列表
