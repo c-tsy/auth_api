@@ -1,6 +1,6 @@
 {
   "name": "@ctsy/auth-api",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -28,13 +28,13 @@
     "prepublish": "yarn build"
   },
   "dependencies": {
-    "@ctsy/hook": "^0.0.5",
-    "@ctsy/request": "^1.0.10"
+    "@ctsy/hook": "^0",
+    "@ctsy/request": "^1"
   },
   "devDependencies": {
-    "ts-loader": "^6.0.4",
-    "typescript": "^3.5.3",
-    "webpack": "^4.39.1",
-    "webpack-cli": "^3.3.6"
+    "ts-loader": "^6.0",
+    "typescript": "^3.5",
+    "webpack": "^4.39",
+    "webpack-cli": "^3.3"
   }
 }
